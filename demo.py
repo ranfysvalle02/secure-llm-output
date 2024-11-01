@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template_string
-
+import ollama
+desired_model = 'llama3.2:3b'
 app = Flask(__name__)
 
 HTML_TEMPLATE = """
@@ -108,9 +109,24 @@ def index():
     output = ""
     if request.method == 'POST':
         user_input = request.form['user_input']
-        
+        response = ollama.chat(model=desired_model, messages=[
+            {
+                "role": "system",
+                "content": "YOU MUST ALWAYS RESPOND IN HTML. YOU ARE A HELPFUL ASSISTANT."
+            },
+            {
+                'role': 'user',
+                'content': f"""
+[user input]
+{user_input}
+[/user input]
+""",
+            },
+        ])
+        # Extract the response content
+        result = response['message']['content']
         # Insecure handling: directly embedding user input without sanitization
-        output = f"You asked: {user_input}. Here is some output: {user_input}"
+        output = result
 
     return render_template_string(HTML_TEMPLATE, output=output)
 
