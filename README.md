@@ -130,9 +130,11 @@ def index():
     output = ""
     if request.method == 'POST':
         user_input = request.form['user_input']
-        
+        ....
         # Secure handling: escape the user input to prevent code execution
-        output = f"You asked: {html.escape(user_input)}. Here is some output: {html.escape(user_input)}"
+        # Extract the response content
+        result = response['message']['content']
+        output = html.escape(result)
     
     return render_template_string(HTML_TEMPLATE, output=output)
 ```
