@@ -87,6 +87,8 @@ Open your browser and navigate to `http://127.0.0.1:5000/`. Try entering the fol
 
 Upon submitting the form, you'll notice a JavaScript alert, demonstrating how the app's failure to sanitize output allows execution of arbitrary scripts. This is a classic XSS vulnerability.
 
+![](demo2.png)
+
 ### Why Is This Dangerous?
 
 This vulnerability is dangerous because it allows any potentially harmful input, including JavaScript, to be executed directly in the user's browser. For example:
