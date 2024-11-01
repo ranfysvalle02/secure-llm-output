@@ -1,6 +1,6 @@
 # secure-llm-output
 
-# Securing LLM Output in Web Applications: Avoiding Insecure AI Response Handling
+# Securing LLM Output in Web Applications
 
 Integrating large language models (LLMs) into web applications can drastically enhance user experience. From dynamic content generation to complex interaction handling, LLMs have become essential tools for modern web applications. However, with this capability comes an increased responsibility for developers to ensure the secure handling of AI-generated output. Improper handling of LLM output can lead to severe vulnerabilities, including cross-site scripting (XSS), data leakage, and potential exploits that compromise the integrity of applications.
 
