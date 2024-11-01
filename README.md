@@ -217,6 +217,25 @@ Modern frameworks come with built-in security features that handle many XSS issu
 
 Defending against XSS attacks requires a layered approach, combining input sanitization, output encoding, policy enforcement, and proactive security practices. By following these steps, developers can create a secure environment that reduces the risk of XSS vulnerabilities, protects user data, and minimizes the impact of potential attacks.
 
+### Potential Limitations of CSP
+
+While Content Security Policy (CSP) is a powerful tool for enhancing web security, it's essential to be aware of its limitations:
+
+* **Complexity:** Implementing and maintaining a robust CSP can be complex, especially for large and dynamic web applications. It requires careful consideration of all resources and scripts used, and any changes can impact the application's functionality.
+* **Browser Compatibility:** Different browsers may have varying levels of support for CSP features. Ensuring compatibility across different browsers can add complexity to the implementation.
+* **False Positives and Negatives:** Overly restrictive CSPs can inadvertently block legitimate resources, leading to broken functionality. On the other hand, less restrictive CSPs may not provide adequate protection against certain attacks.
+* **Dynamic Content:** CSP can be challenging to apply to dynamic content, such as user-generated content or third-party scripts. It may require careful configuration to allow for safe execution of these resources.
+* **Bypass Techniques:** While CSP is a strong defense, it's not infallible. Advanced attackers may still find ways to bypass CSP restrictions, especially if there are vulnerabilities in other parts of the application.
+
+**To mitigate these limitations, consider the following:**
+
+* **Start with a Baseline Policy:** Begin with a basic CSP that blocks common attack vectors, such as inline scripts and data URLs.
+* **Gradual Tightening:** Gradually tighten the policy as you gain more understanding of your application's resource requirements.
+* **Leverage Reporting:** Use the `report-uri` directive to receive detailed reports about CSP violations, allowing you to identify and address potential issues.
+* **Consider a Hybrid Approach:** Combine CSP with other security measures, such as input validation, output encoding, and web application firewalls, to create a layered defense.
+
+By understanding the limitations and best practices for implementing CSP, developers can effectively use this tool to enhance the security of their web applications.
+
 ## Conclusion
 
 Incorporating AI-generated content into web applications brings exciting opportunities, but it also raises new security concerns. This guide has demonstrated how insecure handling of LLM output can lead to vulnerabilities such as XSS, compromising user data and application integrity. By following secure coding practices—such as escaping HTML characters, implementing CSPs, and conducting regular security audits—developers can build applications that leverage AI safely and responsibly.
